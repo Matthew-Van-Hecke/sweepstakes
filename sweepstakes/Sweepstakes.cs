@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace sweepstakes
 {
-    class Sweepstakes
+    public class Sweepstakes
     {
         //Member Variables
         private Dictionary<int, Contestant> contestants = new Dictionary<int, Contestant>();
@@ -20,6 +20,10 @@ namespace sweepstakes
             get { return name; }
         }
         int nextRegistrationNumberToUse;
+        public int NextRegistrationNumberToUse
+        {
+            get { return nextRegistrationNumberToUse; }
+        }
         Random random;
         //Constructor
         public Sweepstakes(string name)
