@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContestantTests.cs" />
+    <Compile Include="SweepstakesStackManagerTests.cs" />
     <Compile Include="SweepstakesTests.cs" />
     <Compile Include="UserInterfaceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
