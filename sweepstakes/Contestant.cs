@@ -10,6 +10,10 @@ namespace sweepstakes
     {
         //Member Variables
         string firstName;
+        public string FirstName
+        {
+            get { return firstName; }
+        }
         string lastName;
         string email;
         string address;
@@ -19,18 +23,25 @@ namespace sweepstakes
             get { return registrationNumber; }
         }
         //Constructor
-        public Contestant()
+        public Contestant(int registrationNumber)
         {
-            firstName = UserInterface.GetUserInputFor("first name");
-            lastName = UserInterface.GetUserInputFor("last name");
-            email = UserInterface.GetUserInputFor("email");
-            address = UserInterface.GetUserInputFor("street address");
-            registrationNumber = int.Parse(UserInterface.GetUserInputFor("registration number"));
+            firstName = "John";
+            lastName = "Doe";
+            email = "john@gmail.com";
+            address = "123 Expample Blvd.";
+            this.registrationNumber = registrationNumber;
         }
         //Member Methods
         public void PrintContestantInfo()
         {
             Console.WriteLine("\n" + firstName + " " + lastName + "\n" + email + "\n" + address + "\n" + registrationNumber);
+        }
+        public void EnterContestantInfo()
+        {
+            firstName = UserInterface.GetUserInputFor("first name");
+            lastName = UserInterface.GetUserInputFor("last name");
+            email = UserInterface.GetUserInputFor("email");
+            address = UserInterface.GetUserInputFor("street address");
         }
     }
 }
