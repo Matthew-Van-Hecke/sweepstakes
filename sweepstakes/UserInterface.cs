@@ -16,6 +16,28 @@ namespace sweepstakes
             {
                 Console.WriteLine("Please enter your " + prompt + ".");
                 response = Console.ReadLine();
+                switch (prompt)
+                {
+                    case "email":
+                        if (ValidateEmail(response))
+                        {
+                            validInput = true;
+                        }
+                        break;
+                    case "registration number":
+                        if (ValidateEmail(response))
+                        {
+                            validInput = true;
+                        }
+                        break;
+                    default:
+                        validInput = true;
+                        break;
+                }
+                if (!validInput)
+                {
+                    Console.WriteLine("Invalid input. Please try again.");
+                }
             }
             return response;
         }
