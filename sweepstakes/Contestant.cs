@@ -24,5 +24,9 @@ namespace sweepstakes
             registrationNumber = int.Parse(UserInterface.GetUserInputFor("registration number"));
         }
         //Member Methods
+        public void PrintContestantInfo()
+        {
+            Console.WriteLine("\n" + firstName + " " + lastName + "\n" + email + "\n" + address + "\n" + registrationNumber);
+        }
     }
 }

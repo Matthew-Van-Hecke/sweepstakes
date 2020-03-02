@@ -10,8 +10,8 @@ namespace sweepstakes
     {
         static void Main(string[] args)
         {
-            string email = UserInterface.GetUserInputFor("email");
-            Console.WriteLine(email);
+            Contestant contestant = new Contestant();
+            contestant.PrintContestantInfo();
             Console.ReadLine();
         }
     }

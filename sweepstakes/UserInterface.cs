@@ -25,7 +25,7 @@ namespace sweepstakes
                         }
                         break;
                     case "registration number":
-                        if (ValidateEmail(response))
+                        if (ValidateInt(response))
                         {
                             validInput = true;
                         }
