@@ -30,6 +30,12 @@ namespace sweepstakes
                             validInput = true;
                         }
                         break;
+                    case "sweepstakes manager type (stack or queue)":
+                        if (ValidateManagerType(response))
+                        {
+                            validInput = true;
+                        }
+                        break;
                     default:
                         validInput = true;
                         break;
@@ -62,6 +68,17 @@ namespace sweepstakes
         {
             int result;
             if (int.TryParse(userInput, out result))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public static bool ValidateManagerType(string userInput)
+        {
+            if (userInput.ToLower() == "stack" || userInput.ToLower() == "queue")
             {
                 return true;
             }

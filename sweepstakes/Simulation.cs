@@ -8,5 +8,18 @@ namespace sweepstakes
 {
     class Simulation
     {
+        private ISweepstakesManager PickManagerType()
+        {
+            string sweepstakesType = UserInterface.GetUserInputFor("sweepstakes manager type (stack or queue)");
+            switch (sweepstakesType)
+            {
+                case "stack":
+                    return new SweepstakesStackManager();
+                case "queue":
+                    return new SweepstakesQueueManager();
+                default:
+                    throw new Exception();
+            }
+        }
     }
 }
