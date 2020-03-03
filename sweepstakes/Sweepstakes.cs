@@ -45,5 +45,9 @@ namespace sweepstakes
             int randomNumber = random.Next(1000, nextRegistrationNumberToUse);
             return contestants[randomNumber];
         }
+        public void PrintContestantInfo(Contestant contestant)
+        {
+            Console.WriteLine("\n" + contestant.FirstName + " " + contestant.LastName + "\n" + contestant.Email + "\n" + contestant.Address + "\n" + contestant.RegistrationNumber);
+        }
     }
 }

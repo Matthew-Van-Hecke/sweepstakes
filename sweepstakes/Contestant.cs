@@ -44,10 +44,6 @@ namespace sweepstakes
             this.registrationNumber = registrationNumber;
         }
         //Member Methods
-        public void PrintContestantInfo()
-        {
-            Console.WriteLine("\n" + firstName + " " + lastName + "\n" + email + "\n" + address + "\n" + registrationNumber);
-        }
         public void EnterContestantInfo()
         {
             firstName = UserInterface.GetUserInputFor("first name");
