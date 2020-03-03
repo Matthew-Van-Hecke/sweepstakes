@@ -9,7 +9,7 @@ namespace sweepstakes
     public class SweepstakesQueueManager : ISweepstakesManager
     {
         //Member Variables
-        Queue<Sweepstakes> queue;
+        private Queue<Sweepstakes> queue;
         public Queue<Sweepstakes> Queue
         {
             get { return queue; }

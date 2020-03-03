@@ -15,8 +15,20 @@ namespace sweepstakes
             get { return firstName; }
         }
         string lastName;
+        public string LastName
+        {
+            get { return lastName; }
+        }
         string email;
+        public string Email
+        {
+            get { return email; }
+        }
         string address;
+        public string Address
+        {
+            get { return address; }
+        }
         int registrationNumber;
         public int RegistrationNumber
         {

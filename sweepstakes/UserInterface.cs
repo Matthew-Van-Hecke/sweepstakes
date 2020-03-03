@@ -12,26 +12,28 @@ namespace sweepstakes
         {
             bool validInput = false;
             string response = "";
+            string lowerCaseResponse;
             while (!validInput)
             {
                 Console.WriteLine("Please enter your " + prompt + ".");
-                response = Console.ReadLine().ToLower();
+                response = Console.ReadLine();
+                lowerCaseResponse = response.ToLower();
                 switch (prompt)
                 {
                     case "email":
-                        if (ValidateEmail(response))
+                        if (ValidateEmail(lowerCaseResponse))
                         {
                             validInput = true;
                         }
                         break;
                     case "registration number":
-                        if (ValidateInt(response))
+                        if (ValidateInt(lowerCaseResponse))
                         {
                             validInput = true;
                         }
                         break;
                     case "sweepstakes manager type (stack or queue)":
-                        if (ValidateManagerType(response))
+                        if (ValidateManagerType(lowerCaseResponse))
                         {
                             validInput = true;
                         }

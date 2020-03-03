@@ -10,10 +10,7 @@ namespace sweepstakes
     {
         static void Main(string[] args)
         {
-            Simulation simulation = new Simulation();
-            ISweepstakesManager manager = simulation.PickManagerType();
-            Console.WriteLine(manager.GetType());
-            Console.ReadLine();
+            
         }
     }
 }

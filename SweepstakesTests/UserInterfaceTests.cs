@@ -167,7 +167,7 @@ namespace SweepstakesTests
         public void ValidateManagerType_PassInStringEqualToStack_ReturnTrue()
         {
             //Arrange
-            string userInput = "Stack";
+            string userInput = "stack";
             bool expected = true;
             bool actual;
             //Act
@@ -179,7 +179,7 @@ namespace SweepstakesTests
         public void ValidateManagerType_PassInStringEqualToQueue_ReturnTrue()
         {
             //Arrange
-            string userInput = "QUEUE";
+            string userInput = "queue";
             bool expected = true;
             bool actual;
             //Act

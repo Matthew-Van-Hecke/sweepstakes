@@ -36,6 +36,7 @@ namespace sweepstakes
         public void RegisterContestant()
         {
             Contestant contestant = new Contestant(nextRegistrationNumberToUse);
+            contestant.EnterContestantInfo();
             contestants[contestant.RegistrationNumber] = contestant;
             nextRegistrationNumberToUse++;
         }

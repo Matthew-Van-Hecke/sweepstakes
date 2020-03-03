@@ -8,6 +8,14 @@ namespace sweepstakes
 {
     class Simulation
     {
+        //Member Variables
+        private MarketingFirm marketingFirm;
+        //Constructor
+        public Simulation()
+        {
+            marketingFirm = new MarketingFirm(PickManagerType());
+        }
+        //Member Methods
         public ISweepstakesManager PickManagerType()
         {
             string sweepstakesType = UserInterface.GetUserInputFor("sweepstakes manager type (stack or queue)");
