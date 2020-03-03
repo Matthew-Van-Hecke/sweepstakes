@@ -24,12 +24,14 @@ namespace sweepstakes
         {
             get { return nextRegistrationNumberToUse; }
         }
+        int startingRegistrationNumber;
         Random random;
         //Constructor
         public Sweepstakes(string name)
         {
             this.name = name;
-            nextRegistrationNumberToUse = 1000;
+            startingRegistrationNumber = 1000;
+            nextRegistrationNumberToUse = startingRegistrationNumber;
             random = new Random();
         }
         //Member Methods
@@ -49,9 +51,27 @@ namespace sweepstakes
         {
             Console.WriteLine("\n" + contestant.FirstName + " " + contestant.LastName + "\n" + contestant.Email + "\n" + contestant.Address + "\n" + contestant.RegistrationNumber);
         }
-        public void AlertWinner(Contestant winner)
+        public void AlertAllContestantsOfResults(Contestant winner)
         {
-            Console.WriteLine("Congratualtions, " + winner.FirstName + "! You won!");
+            for (int i = startingRegistrationNumber; i < nextRegistrationNumberToUse; i++)
+            {
+                if (contestants[i].Equals(winner))
+                {
+                    AlertWinner(contestants[i].FirstName);
+                }
+                else
+                {
+                    AlertOtherContestant(i, winner.FirstName, contestants[i].FirstName);
+                }
+            }
+        }
+        public void AlertWinner(string winnerFirstName)
+        {
+            Console.WriteLine("Congratualtions, " + winnerFirstName + "! You won!");
+        }
+        public void AlertOtherContestant(int registrationNumber, string winnerFirstName, string loserFirstName)
+        {
+            Console.WriteLine(registrationNumber + " " + loserFirstName + ", thank you for participating! You lost. Congratualtions to " + winnerFirstName + " for winning!");
         }
     }
 }
