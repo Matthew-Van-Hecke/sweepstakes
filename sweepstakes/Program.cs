@@ -10,17 +10,9 @@ namespace sweepstakes
     {
         static void Main(string[] args)
         {
-            Random random = new Random();
-            Sweepstakes sweepstakes = new Sweepstakes("My New Sweepstakes");
-            for (int i = 0; i < 50; i++)
-            {
-                sweepstakes.RegisterContestant();
-            }
-            for (int i = 1000; i < 1050; i++)
-            {
-                sweepstakes.Contestants[i].PrintContestantInfo();
-            }
-            sweepstakes.PickWinner().PrintContestantInfo();
+            Simulation simulation = new Simulation();
+            ISweepstakesManager manager = simulation.PickManagerType();
+            Console.WriteLine(manager.GetType());
             Console.ReadLine();
         }
     }

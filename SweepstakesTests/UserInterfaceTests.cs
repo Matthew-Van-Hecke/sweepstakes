@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace SweepstakesTests
 {
     [TestClass]
-    public class UnitTest1
+    public class UserInterfaceTests
     {
         [TestMethod]
         public void ValidateEmail_NoAtsOrDots_ReturnFalse()
@@ -160,6 +160,42 @@ namespace SweepstakesTests
             bool actual;
             //Act
             actual = UserInterface.ValidateInt(userInput);
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void ValidateManagerType_PassInStringEqualToStack_ReturnTrue()
+        {
+            //Arrange
+            string userInput = "Stack";
+            bool expected = true;
+            bool actual;
+            //Act
+            actual = UserInterface.ValidateManagerType(userInput);
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void ValidateManagerType_PassInStringEqualToQueue_ReturnTrue()
+        {
+            //Arrange
+            string userInput = "QUEUE";
+            bool expected = true;
+            bool actual;
+            //Act
+            actual = UserInterface.ValidateManagerType(userInput);
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void ValidateManagerType_PassInStringNotEqualToStackOrQueue_ReturnFalse()
+        {
+            //Arrange
+            string userInput = "this";
+            bool expected = false;
+            bool actual;
+            //Act
+            actual = UserInterface.ValidateManagerType(userInput);
             //Assert
             Assert.AreEqual(expected, actual);
         }

@@ -15,7 +15,7 @@ namespace sweepstakes
             while (!validInput)
             {
                 Console.WriteLine("Please enter your " + prompt + ".");
-                response = Console.ReadLine();
+                response = Console.ReadLine().ToLower();
                 switch (prompt)
                 {
                     case "email":
@@ -78,7 +78,7 @@ namespace sweepstakes
         }
         public static bool ValidateManagerType(string userInput)
         {
-            if (userInput.ToLower() == "stack" || userInput.ToLower() == "queue")
+            if (userInput == "stack" || userInput == "queue")
             {
                 return true;
             }
