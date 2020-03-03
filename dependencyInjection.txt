@@ -1,0 +1,6 @@
+I use dependency injection from the Simulation class into the MarketingFirm constructor. The type of sweepstakes manager to use is 
+determined in the Simulator class, and then the MarketingFirm class can operate on either type of manager equally effectively. 
+Thus, the MarketingFirm class is no longer dependent on either SweeptakesStackManager or SweepstakesQueueManager individually, 
+but on the ISweepstakesManager interface. This then allows us to create new types of manager (having them inherit from 
+ISweepstakesManager) that can then be used in the MarketingFirm class without needing to rewrite any of its code. This is an example of 
+the open/closed principle from SOLID.
