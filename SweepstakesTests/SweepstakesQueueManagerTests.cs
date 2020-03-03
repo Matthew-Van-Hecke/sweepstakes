@@ -37,7 +37,7 @@ namespace SweepstakesTests
             sweepstakesQueue.InsertSweepstakes(sweepstakes2);
             sweepstakesQueue.InsertSweepstakes(sweepstakes3);
             //Assert
-            Assert.AreEqual(expected, sweepstakesQueue.Queue.Dequeue());
+            Assert.AreEqual(expected, sweepstakesQueue.Queue.Dequeue().Name);
         }
     }
 }
