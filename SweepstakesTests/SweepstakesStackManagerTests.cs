@@ -19,5 +19,17 @@ namespace SweepstakesTests
             //Assert
             Assert.AreEqual(expected, stackManager.Stack.Count);
         }
+        [TestMethod]
+        public void InsertSweepstakes_InsertTwoSweepstakes_TopStackIsTheSecondOneAdded()
+        {
+            //Arrange
+            SweepstakesStackManager stackManager = new SweepstakesStackManager();
+            string expected = "that";
+            //Act
+            stackManager.InsertSweepstakes(new Sweepstakes("this"));
+            stackManager.InsertSweepstakes(new Sweepstakes("that"));
+            //Assert
+            Assert.AreEqual(expected, stackManager.Stack.Pop().Name);
+        }
     }
 }
