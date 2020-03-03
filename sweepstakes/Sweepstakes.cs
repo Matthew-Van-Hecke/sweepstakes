@@ -49,5 +49,9 @@ namespace sweepstakes
         {
             Console.WriteLine("\n" + contestant.FirstName + " " + contestant.LastName + "\n" + contestant.Email + "\n" + contestant.Address + "\n" + contestant.RegistrationNumber);
         }
+        public void AlertWinner(Contestant winner)
+        {
+            Console.WriteLine("Congratualtions, " + winner.FirstName + "! You won!");
+        }
     }
 }

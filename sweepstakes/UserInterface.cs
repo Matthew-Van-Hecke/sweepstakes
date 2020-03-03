@@ -18,30 +18,7 @@ namespace sweepstakes
                 Console.WriteLine("Please enter your " + prompt + ".");
                 response = Console.ReadLine();
                 lowerCaseResponse = response.ToLower();
-                switch (prompt)
-                {
-                    case "email":
-                        if (ValidateEmail(lowerCaseResponse))
-                        {
-                            validInput = true;
-                        }
-                        break;
-                    case "registration number":
-                        if (ValidateInt(lowerCaseResponse))
-                        {
-                            validInput = true;
-                        }
-                        break;
-                    case "sweepstakes manager type (stack or queue)":
-                        if (ValidateManagerType(lowerCaseResponse))
-                        {
-                            validInput = true;
-                        }
-                        break;
-                    default:
-                        validInput = true;
-                        break;
-                }
+                validInput = ValidateUserInput(prompt, lowerCaseResponse);
                 if (!validInput)
                 {
                     Console.WriteLine("Invalid input. Please try again.");
@@ -65,6 +42,33 @@ namespace sweepstakes
             {
                 return true;
             }
+        }
+        public static bool ValidateUserInput(string prompt, string lowerCaseResponse)
+        {
+            switch (prompt)
+            {
+                case "email":
+                    if (ValidateEmail(lowerCaseResponse))
+                    {
+                        return true;
+                    }
+                    break;
+                case "registration number":
+                    if (ValidateInt(lowerCaseResponse))
+                    {
+                        return true;
+                    }
+                    break;
+                case "sweepstakes manager type (stack or queue)":
+                    if (ValidateManagerType(lowerCaseResponse))
+                    {
+                        return true;
+                    }
+                    break;
+                default:
+                    return true;
+            }
+            return false;
         }
         public static bool ValidateInt(string userInput)
         {
