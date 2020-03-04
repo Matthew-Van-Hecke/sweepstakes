@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MailKit.Net.Smtp;
+using MailKit;
+using MimeKit;
 
 namespace sweepstakes
 {
@@ -57,7 +60,7 @@ namespace sweepstakes
             {
                 if (contestants[i].Equals(winner))
                 {
-                    AlertWinner(contestants[i].FirstName);
+                    AlertWinner(contestants[i]);
                 }
                 else
                 {
@@ -65,9 +68,36 @@ namespace sweepstakes
                 }
             }
         }
-        public void AlertWinner(string winnerFirstName)
+        public MimeMessage CreateWinnerMessage(string name, string email)
         {
-            Console.WriteLine("Congratualtions, " + winnerFirstName + "! You won!");
+            MimeMessage message = new MimeMessage();
+            message.From.Add(new MailboxAddress("Me", "sweepstakes@example.com"));
+            message.To.Add(new MailboxAddress(name, email));
+            message.Subject = "You won!";
+            message.Body = new TextPart("plain")
+            {
+                Text = @"Congratulations, " + name + "! You won the sweepstakes!"
+            };
+            return message;
+        }
+        public void SendEmail(MimeMessage message)
+        {
+            using (SmtpClient client = new SmtpClient())
+            {
+                client.ServerCertificateValidationCallback = (s, c, h, e) => true;
+
+                client.Connect("smtp.gmail.com", 587, false);
+
+                client.Authenticate("vhmatt245@gmail.com", "HotDog89");
+
+                client.Send(message);
+                client.Disconnect(true);
+            }
+        }
+        public void AlertWinner(Contestant winner)
+        {
+            MimeMessage message = CreateWinnerMessage(winner.FirstName + winner.LastName, winner.Email);
+            SendEmail(message);
         }
         public void AlertOtherContestant(int registrationNumber, string winnerFirstName, string loserFirstName)
         {
