@@ -10,13 +10,7 @@ namespace sweepstakes
     {
         static void Main(string[] args)
         {
-            Sweepstakes sweepstakes = new Sweepstakes("My Seepstakes");
-            for (int i = 0; i < 3; i++)
-            {
-                sweepstakes.RegisterContestant();
-            }
-            sweepstakes.AlertAllContestantsOfResults(sweepstakes.PickWinner());
-            Console.ReadLine();
+            
         }
     }
 }
